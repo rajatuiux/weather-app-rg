@@ -24,25 +24,42 @@
     font-weight: 600;
   }
 }
-
-@keyframes logoAnimation {
+@keyframes sunLogo {
   0% {
-    transform: scale(0) rotate(0);
-  }
-  70% {
-    transform: scale(140%) rotate(180deg);
+    opacity: 0;
   }
   100% {
-    transform: scale(100%) rotate(360deg);
+    transform: translate(-50%, 0%);
+    opacity: 100%;
+  }
+}
+@keyframes cloudLeft {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(-50%);
+    opacity: 100%;
   }
 }
 
-@keyframes logoFace {
+@keyframes cloudRight {
   0% {
-    transform: scale(0);
+    transform: translateX(200%);
   }
   100% {
-    transform: scale(100%);
+    transform: translateX(-50%);
+    opacity: 100%;
+  }
+}
+
+@keyframes cloudTop {
+  0% {
+    transform: translate(-50%, 200%);
+  }
+  100% {
+    transform: translate(-50%, 0%);
+    opacity: 100%;
   }
 }
 
@@ -79,6 +96,7 @@ main {
   border-radius: 50px;
   color: var(--text-primary);
   height: 50px;
+  min-width: 0; /* 👈 important: lets input shrink with grid */
 }
 
 .search input:focus {
@@ -119,39 +137,65 @@ main {
 .search button.active img {
   opacity: 100%;
 }
-
 .logo {
-  display: grid;
-  width: 100%;
-  justify-content: center;
-  gap: 12px;
-  height: 160px;
+  position: relative;
+  top: 100px;
 }
 .logo .logoContainer {
   position: relative;
-  max-height: 160px;
-  padding-top: 150px;
+  width: 100%;
+  height: 220px;
 }
 .logoContainer img {
-  width: 150px;
   position: absolute;
+  width: 100%;
+  max-width: 400px;
+  min-width: 0;
+}
+.logoContainer .logo-face {
+  width: 100%;
+  height: 250px;
+  position: absolute;
+  bottom: 148px;
+  overflow: hidden;
+}
+.logoContainer .logo-face > img {
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  max-width: 200px;
+  animation: sunLogo 1s ease-in-out forwards 1s;
+}
+.logoContainer .clouds {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.logoContainer .clouds .logo-left,
+.logoContainer .clouds .logo-right,
+.logoContainer .clouds .logo-top {
   top: 0;
-  left: -10px;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  z-index: 2;
+  opacity: 0;
 }
-.logoContainer img.logo-face {
-  z-index: 9;
-  animation-delay: 3s;
-  animation: logoFace 1s;
+.logoContainer .clouds .logo-left {
+  animation: cloudLeft 1s ease-in-out forwards;
 }
-.logoContainer img.logo-bg {
-  z-index: 0;
-  animation: logoAnimation 4s ease-in-out forwards;
-  animation-delay: -1s;
+.logoContainer .clouds .logo-right {
+  animation: cloudRight 1s ease-in-out forwards 150ms;
+}
+.logoContainer .clouds .logo-top {
+  animation: cloudTop 1s ease-in-out forwards 300ms;
 }
 .footer {
   padding: 0px 24px 48px 24px;
   font-size: 13px;
-  width: 320px;
+  width: 80%;
+  max-width: 320px;
   margin: 0 auto;
 }
 .topContent {
@@ -236,8 +280,15 @@ p {
     overflow: hidden;
   }
   main {
+    width: 100%;
     max-width: 400px; /* lock it to ~mobile width */
     min-height: calc(100dvh - 48px);
     border-radius: 30px;
+  }
+}
+
+@media (max-width: 300px) {
+  .logo {
+    display: none;
   }
 }
