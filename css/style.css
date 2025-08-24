@@ -30,15 +30,13 @@ body {
 }
 main {
   margin: 0 auto;
-  margin-top: 24px;
   max-width: 400px;
   background-color: var(--bg);
-  border-radius: 36px;
   text-align: center;
   overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  min-height: 900px;
+  height: 100vh;
   gap: 0;
 }
 .search {
