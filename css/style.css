@@ -37,7 +37,8 @@ main {
   background-color: var(--bg);
   text-align: center;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto auto;
+  align-items: center;
   gap: 0;
 }
 .search {
@@ -45,7 +46,7 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: max-content;
   column-gap: 8px;
-  margin: 24px;
+  margin: 24px 24px 0 24px;
 }
 .search input {
   padding: 8px 24px;
@@ -93,10 +94,26 @@ main {
 .search button.active img {
   opacity: 100%;
 }
+
+.logo{
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  gap: 12px;
+  max-height: 160px;
+}
+.logo img{
+  width: 150px;
+}
+.footer{
+  padding: 0px 24px 40px 24px;
+  font-size: 14px;
+}
 .topContent {
   display: grid;
   row-gap: 16px;
   padding: 24px;
+  height: 0;
 }
 
 .bottomContent {

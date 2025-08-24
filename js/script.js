@@ -31,7 +31,11 @@ async function checkWeather(city) {
   if (response.status == 404) {
     document.querySelector("main").classList.add("noRecord");
   } else {
-    document.querySelector("main.noRecord").classList.remove("noRecord");
+    document.querySelector("main").classList.remove("noRecord");
+    document.querySelector("main").style.gridTemplateRows = "auto 1fr auto";
+    document.querySelector(".logo").style.display = "none";
+    document.querySelector(".footer").style.display = "none";
+    document.querySelector(".topContent").style.height = "auto";
   }
   //   current date and time
   document.querySelector(".dateTime").innerHTML = `${
