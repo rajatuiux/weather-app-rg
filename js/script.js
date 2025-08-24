@@ -119,9 +119,7 @@ async function checkWeather(city) {
   }
 }
 
-// window.onload = function () {
-//   checkWeather("Delhi");
-// };
+
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -148,3 +146,7 @@ inputCity.addEventListener("focus", () => {
     inputCity.scrollIntoView({ behavior: "smooth", block: "center" });
   }, 300); // delay lets keyboard fully open first
 });
+
+window.onload = function () {
+  document.querySelector(".logo-bg").style.animation = "";
+};

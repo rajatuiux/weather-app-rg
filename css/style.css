@@ -25,6 +25,27 @@
   }
 }
 
+@keyframes logoAnimation {
+  0% {
+    transform: scale(0) rotate(0);
+  }
+  70% {
+    transform: scale(140%) rotate(180deg);
+  }
+  100% {
+    transform: scale(100%) rotate(360deg);
+  }
+}
+
+@keyframes logoFace {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
 body {
   color: var(--text-primary);
 }
@@ -48,7 +69,7 @@ main {
   column-gap: 8px;
   margin: 24px 24px 0 24px;
 }
-.cityData .search input{
+.cityData .search input {
   border: 1px solid var(--text-secondary);
 }
 .search input {
@@ -99,17 +120,35 @@ main {
   opacity: 100%;
 }
 
-.logo{
+.logo {
   display: grid;
   width: 100%;
   justify-content: center;
   gap: 12px;
+  height: 160px;
+}
+.logo .logoContainer {
+  position: relative;
   max-height: 160px;
+  padding-top: 150px;
 }
-.logo img{
+.logoContainer img {
   width: 150px;
+  position: absolute;
+  top: 0;
+  left: -10px;
 }
-.footer{
+.logoContainer img.logo-face {
+  z-index: 9;
+  animation-delay: 3s;
+  animation: logoFace 1s;
+}
+.logoContainer img.logo-bg {
+  z-index: 0;
+  animation: logoAnimation 4s ease-in-out forwards;
+  animation-delay: -1s;
+}
+.footer {
   padding: 0px 24px 48px 24px;
   font-size: 13px;
   width: 320px;
