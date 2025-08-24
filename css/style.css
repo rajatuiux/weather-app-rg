@@ -28,15 +28,16 @@
 body {
   color: var(--text-primary);
 }
+
 main {
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
   margin: 0 auto;
-  width: 100vw;
   background-color: var(--bg);
   text-align: center;
-  overflow: hidden;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  height: 100vh;
   gap: 0;
 }
 .search {
@@ -159,4 +160,16 @@ p {
 }
 .weather {
   text-transform: capitalize;
+}
+
+@media (min-width: 401px) {
+  body {
+    padding: 24px 0;
+    overflow: hidden;
+  }
+  main {
+    max-width: 400px; /* lock it to ~mobile width */
+    min-height: calc(100dvh - 48px);
+    border-radius: 30px;
+  }
 }
