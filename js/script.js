@@ -125,8 +125,8 @@ async function checkWeather(city) {
 
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (inputCity.value) {
-    checkWeather(inputCity.value);
+  if (inputCity.value.trim()) {
+    checkWeather(inputCity.value.trim());
     document.querySelector("main").classList.add("cityData");
   } else {
     checkWeather("Delhi");
@@ -141,4 +141,10 @@ inputCity.addEventListener("input", () => {
     searchBtn.classList.remove("active");
     document.querySelector(".search").style.gridTemplateColumns = "1fr";
   }
+});
+
+inputCity.addEventListener("focus", () => {
+  setTimeout(() => {
+    inputCity.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 300); // delay lets keyboard fully open first
 });
