@@ -32,6 +32,8 @@ async function checkWeather(city) {
   if (response.status == 404) {
     document.querySelector(".topContent").innerHTML =
       "<p class='error'>No records found</p>";
+    document.querySelector(".bottomContent").innerHTML = "";
+    document.querySelector(".bottomContent").style.padding = "0";
   } else {
     var data = await response.json();
 
