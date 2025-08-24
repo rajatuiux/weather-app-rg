@@ -127,6 +127,7 @@ searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (inputCity.value) {
     checkWeather(inputCity.value);
+    document.querySelector("main").classList.add("cityData");
   } else {
     checkWeather("Delhi");
   }
