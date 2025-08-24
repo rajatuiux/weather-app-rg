@@ -98,9 +98,15 @@ main {
   row-gap: 16px;
   padding: 24px;
 }
+
 .bottomContent {
+  display: block;
   border-radius: 36px 36px 0 0;
   background: var(--bg-dark);
+}
+.noRecord .topContent,
+.noRecord .bottomContent {
+  display: none;
 }
 h1,
 h2,
