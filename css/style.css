@@ -64,7 +64,8 @@ main {
   animation: searchInput 1s ease-in-out forwards;
 }
 .search input::placeholder {
-  color: var(--text-secondary);
+  color: #ffffff;
+  font-size: 14px;
 }
 .search button {
   background: var(--bg-light);
@@ -109,8 +110,10 @@ main {
   width: 150px;
 }
 .footer{
-  padding: 0px 24px 40px 24px;
-  font-size: 14px;
+  padding: 0px 24px 48px 24px;
+  font-size: 13px;
+  width: 320px;
+  margin: 0 auto;
 }
 .topContent {
   display: grid;
