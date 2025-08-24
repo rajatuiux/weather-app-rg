@@ -30,7 +30,7 @@ body {
 }
 main {
   margin: 0 auto;
-  max-width: 400px;
+  width: 100vw;
   background-color: var(--bg);
   text-align: center;
   overflow: hidden;
