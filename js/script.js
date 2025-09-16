@@ -119,8 +119,6 @@ async function checkWeather(city) {
   }
 }
 
-
-
 searchBtn.addEventListener("click", (e) => {
   e.preventDefault();
   if (inputCity.value.trim()) {
@@ -146,7 +144,3 @@ inputCity.addEventListener("focus", () => {
     inputCity.scrollIntoView({ behavior: "smooth", block: "center" });
   }, 300); // delay lets keyboard fully open first
 });
-
-window.onload = function () {
-  document.querySelector(".logo-bg").style.animation = "";
-};
