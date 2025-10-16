@@ -53,20 +53,14 @@ async function checkWeather(city) {
   )}</span>°C`;
   document.querySelector(".topContent .weather").innerHTML =
     data.weather[0].description;
-  // document.querySelector(".bottomContent .humidity").innerHTML = data.main.temp;
-  // document.querySelector(".bottomContent .wind").innerHTML = data.wind.speed;
-  document.querySelector(".humidityWind").innerHTML = `
-      <li class="humidity">
-        <img src="assets/humidity.png" alt="" />
-        <h3><span>${data.main.temp}</span>%</h3>
-        <p class="label">Humidity</p>
-      </li>
-      <li class="wind">
-        <img src="assets/wind.png" alt="" />
-        <h3><span>${data.wind.speed}</span>km/h</h3>
-        <p class="label">Wind Speed</p>
-      </li>
-      `;
+
+  document.querySelector(".humidity span").innerHTML = data.main.humidity;
+  document.querySelector(".wind span").innerHTML = data.wind.speed;
+  document.querySelector(".feels-like span").innerHTML = Math.round(data.main.feels_like);
+  document.querySelector(".temp-min span").innerHTML = Math.round(data.main.temp_min);
+  document.querySelector(".temp-max span").innerHTML = Math.round(data.main.temp_max);
+  document.querySelector(".pressure span").innerHTML = data.main.pressure;
+  document.querySelector(".visibility span").innerHTML = (data.visibility / 1000).toFixed(1);
 
   if (data.weather[0].main === "Clear") {
     weatherIcon.src = "assets/weather/sunny.png";

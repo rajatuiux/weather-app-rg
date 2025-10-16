@@ -245,7 +245,9 @@ p {
 .bottomContent ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
   column-gap: 16px;
+  row-gap: 16px;
 }
 .bottomContent ul li {
   list-style: none;
